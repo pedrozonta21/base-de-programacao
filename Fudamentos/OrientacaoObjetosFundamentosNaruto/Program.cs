@@ -49,6 +49,13 @@ NinjaModel RetornarNinjaNaruto() => new()
     Nome = "Naruto Uzumaki",
     DataNascimento = new DateTime(2001, 8, 31),
     PoderEspecifico = "Jutsu clones da sombra",
+    Aldeia = RetornarAldeiaDaFolha()
+};
+
+AldeiaModel RetornarAldeiaDaFolha() => new()
+{
+    Codigo = 1,
+    Nome = "Aldeia da folha"
 };
 
 void AtribuirPoderesSecundariosParaNaruto(NinjaModel ninja)
@@ -123,12 +130,3 @@ CargoModel RetornarCargoSannin() => new()
     Nome = "Hokage - Sannin lendário",
     IdadeMinima = 18
 };
-
-AldeiaModel RetornarAldeiaDaFolha()
-{
-    return new()
-    {
-        Codigo = 1,
-        Nome = "Aldeia da folha"
-    };
-}
