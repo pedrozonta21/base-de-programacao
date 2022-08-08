@@ -8,4 +8,5 @@ public interface INinjaController
 {
     void AtribuirNovoCargoParaNinja(NinjaModel ninja, CargoModel cargo);
     void AtribuirNovaAldeiaParaNinja(NinjaModel ninja, AldeiaModel aldeia);
+    void AtribuirNovaAldeiaParaNinja(NinjaModel ninja);
 }
