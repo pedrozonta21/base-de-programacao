@@ -1,13 +1,14 @@
 ﻿using OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Aldeia.Models;
 using OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Cargo;
 using OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Ninja.Controllers.Abstracao;
+using OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Ninja.Controllers.Interfaces;
 using OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Ninja.Models;
 
 namespace OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Ninja.Controllers;
 
-public class NinjaController : NinjaControllerBase
+public class NinjaController : NinjaControllerBase, INinjaController
 {
-    public override void AtribuirNovoCargoParaNinja(NinjaModel ninja, CargoModel cargo)
+    public void AtribuirNovoCargoParaNinja(NinjaModel ninja, CargoModel cargo)
     {
         if (VerificarSeNinjaPossuiIdadeParaObterNovoCargo(ninja, cargo)) 
             ninja.Cargo = cargo;

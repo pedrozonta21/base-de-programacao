@@ -7,7 +7,7 @@ namespace OrientacaoObjetosFundamentosNaruto.Features.NarutoClassico.Ninja.Contr
 
 public class NinjaAlternativoController : NinjaControllerBase, INinjaController
 {
-    public override void AtribuirNovoCargoParaNinja(NinjaModel ninja, CargoModel cargo) 
+    public void AtribuirNovoCargoParaNinja(NinjaModel ninja, CargoModel cargo) 
     {
         if (VerificarSeNinjaPossuiMaioridadeParaObterNovoCargo(ninja, cargo)) 
             ninja.Cargo = cargo;
