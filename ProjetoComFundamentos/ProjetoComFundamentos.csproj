@@ -9,7 +9,10 @@
 
   <ItemGroup>
     <Folder Include="Features\Endereco\Controllers\" />
-    <Folder Include="Features\Endereco\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
