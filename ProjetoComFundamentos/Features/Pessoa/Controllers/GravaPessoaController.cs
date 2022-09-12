@@ -4,18 +4,12 @@ namespace ProjetoComFundamentos.Features.Pessoa.Controllers;
 
 public partial class PessoaController
 {
-    public PessoaController(/*criar fábrica de service de gravacao pelo tipo da pessoa*/)
-    {
-
-    }
-
     public void InserirPessoa(PessoaModel pessoaModel) 
-    {
-        /*criar fábrica de service de gravacao pelo tipo da pessoa*/
-    }
+        => _pessoaService.InserirPessoa(pessoaModel);
 
-    public void AtualizarPessoa(PessoaModel pessoaModel)
-    {
-        /*criar fábrica de service de gravacao pelo tipo da pessoa*/
-    }
+    public void AtualizarPessoa(PessoaModel pessoaModel) 
+        => _pessoaService.AtualizarPessoa(pessoaModel);
+
+    public void DesativarPessoa(int codigoPessoa) 
+        => _pessoaService.DesativarPessoa(codigoPessoa);
 }
