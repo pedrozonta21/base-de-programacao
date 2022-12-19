@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.FactoryMethod.Enums;
+﻿namespace DesignPatterns.Criacionais.FactoryMethod.Enums;
 
 public enum TipoMotorEnum
 {

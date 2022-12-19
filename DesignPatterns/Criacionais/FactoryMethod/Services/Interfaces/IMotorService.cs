@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.FactoryMethod.Services.Interfaces;
+﻿namespace DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 
 public interface IMotorService
 {

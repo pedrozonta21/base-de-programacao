@@ -1,9 +1,9 @@
-﻿using DesignPatterns.FactoryMethod.Enums;
-using DesignPatterns.FactoryMethod.Factories.Interfaces;
-using DesignPatterns.FactoryMethod.Services;
-using DesignPatterns.FactoryMethod.Services.Interfaces;
+﻿using DesignPatterns.Criacionais.FactoryMethod.Enums;
+using DesignPatterns.Criacionais.FactoryMethod.Factories.Interfaces;
+using DesignPatterns.Criacionais.FactoryMethod.Services;
+using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 
-namespace DesignPatterns.FactoryMethod.Factories;
+namespace DesignPatterns.Criacionais.FactoryMethod.Factories;
 
 public class MotorServiceFactory : IMotorServiceFactory
 {

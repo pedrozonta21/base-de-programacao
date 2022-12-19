@@ -1,6 +1,6 @@
-﻿using DesignPatterns.FactoryMethod.Services.Interfaces;
+﻿using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 
-namespace DesignPatterns.FactoryMethod.Services;
+namespace DesignPatterns.Criacionais.FactoryMethod.Services;
 
 public class MotorRenaultService : IMotorService
 {

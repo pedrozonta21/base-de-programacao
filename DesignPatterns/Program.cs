@@ -1,7 +1,7 @@
-﻿using DesignPatterns.FactoryMethod.Enums;
-using DesignPatterns.FactoryMethod.Factories;
-using DesignPatterns.FactoryMethod.Services;
-using DesignPatterns.FactoryMethod.Services.Interfaces;
+﻿using DesignPatterns.Criacionais.FactoryMethod.Enums;
+using DesignPatterns.Criacionais.FactoryMethod.Factories;
+using DesignPatterns.Criacionais.FactoryMethod.Services;
+using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 
 //Factory Method
 ILigarMotorService ligarMotorService = 
