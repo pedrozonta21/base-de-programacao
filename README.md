@@ -10,7 +10,9 @@ O método abstrato serve para que as implementações definam como será retorna
 
 O objetivo é concentar na classe abstrata aquilo que <b>*proporciona um melhor funcionamento*</b> para suas derivadas, e não necessariamente dizer o molde delas, já que isso quem faz é a interface.
 
-# Livro Design Patterns - Elements of Reusable Object-Oriented Software
+# Desing Patterns
+- Livro Design Patterns - Elements of Reusable Object-Oriented Software
+- https://refactoring.guru/pt-br/design-patterns
 
 ## Factory Method
 É um padrão de projeto que consiste, como o nome diz, fabricar algo através da chamada de um método. É comum o uso quando se tem várias implementações de uma classe, e baseado em alguma condição, escolhemos uma delas.
