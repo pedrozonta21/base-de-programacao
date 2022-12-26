@@ -25,3 +25,13 @@ A fábrica abstrata é usada quando se trabalha com famílias de objetos, sendo 
 O objetivo é sempre fazer com que uma classe não tenha citações de classes concretas (somente de níveis de regra de negócio), então, para o código cliente não criar essas classes concretas dos objetos que irá usar, temos a fábrica para fazer isso, onde ela é responsável por tratar todo o código, impedindo que o cliente sofra danos com a mudança das classes concretas. Neste exemplo, o código cliente poderia ficar criando _new_ Pilotos, mas isso torna a manutenção perigosa, além de ter que lidar com detalhes de implementação, isso porque exite mais de uma equipe.
 
 Essas fábricas concretas poderiam ser resolvidas no cliente por um Factory Method, onde esse método retornaria a fábrica concreta de cada equipe, baseado em um _Enum_, por exemplo.
+
+## Builder
+O Builder serve para construir objetos complexos por partes, normalmente usado para substituir uma sobrecarga de construtores de uma classe.
+
+O conceito é sobre construir as partes que o cliente precisa, sem passar parâmetros ou objetos vazios, assim, caso um cliente precise ter um Produto completo por exemplo, esse cliente constrói todos os passos.
+Caso precise apenas de dados dos impostos por exemplo, ele pode apenas chamar o método que é responsável por essa ação, desta forma, evita-se um construtor para cada combinação.
+Depois de construído, esse Builder 'reseta' o objeto, para que possa ser construído novamente por outro cliente.
+
+Opcionalmente, esse padão pode conter uma classe _Director_, que consiste em ser uma classe que constrói o objeto em passos específicos, ou ainda, que constrói objetos prontos já com uma sequência de passos.
+É como encapsular a chamada do cliente, de modo que isso possa ser reaproveitado por clientes que precisam de objetos idênticos.
