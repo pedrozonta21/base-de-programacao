@@ -6,6 +6,7 @@ using DesignPatterns.Criacionais.FactoryMethod.Enums;
 using DesignPatterns.Criacionais.FactoryMethod.Factories;
 using DesignPatterns.Criacionais.FactoryMethod.Services;
 using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
+using DesignPatterns.Criacionais.Prototype.Models;
 
 //Factory Method
 ILigarMotorService ligarMotorService = 
@@ -32,7 +33,6 @@ void CriarDuplaDePilotos(ICriaDuplaDePilotosAbstractFactory criaDuplaDePilotosAb
 }
 
 //Builder
-
 ConstruirProduto();
 
 void ConstruirProduto()
@@ -45,3 +45,38 @@ void ConstruirProduto()
 
     Console.WriteLine(produtoConstruido);
 }
+
+//Prototype
+var guitarraFender = new GuitarraModel
+{
+    Codigo = 1,
+    Marca = new MarcaModel { Nome = "Fender" },
+    Modelo = "Fd 5421SS",
+    QtdeTrastes = 22
+};
+
+var guitarraTagima = guitarraFender.ClonarSuperficialmente();
+guitarraTagima.Marca.Nome = "Tagima";
+
+Console.WriteLine(guitarraTagima.Marca.Nome);
+Console.WriteLine(guitarraFender.Marca.Nome);
+
+guitarraTagima = guitarraFender.ClonarProfundamente();
+guitarraFender.Marca.Nome = "Fender";
+
+Console.WriteLine(guitarraTagima.Marca.Nome);
+Console.WriteLine(guitarraFender.Marca.Nome);
+
+var amplificadorBorne = new AmplificadorModel
+{
+    Codigo = 1,
+    Marca = new MarcaModel { Nome = "Borne" },
+    Modelo = "Vorax 1050",
+    PolegadaAltoFalante = 10
+};
+
+var amplificadorMeteoro = amplificadorBorne.Clone() as AmplificadorModel;
+amplificadorMeteoro.Marca.Nome = "Meteoro";
+
+Console.WriteLine(amplificadorBorne.Marca.Nome);
+Console.WriteLine(amplificadorMeteoro.Marca.Nome);
