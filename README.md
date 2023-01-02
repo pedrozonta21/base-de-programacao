@@ -35,3 +35,14 @@ Depois de construído, esse Builder 'reseta' o objeto, para que possa ser constr
 
 Opcionalmente, esse padão pode conter uma classe _Director_, que consiste em ser uma classe que constrói o objeto em passos específicos, ou ainda, que constrói objetos prontos já com uma sequência de passos.
 É como encapsular a chamada do cliente, de modo que isso possa ser reaproveitado por clientes que precisam de objetos idênticos.
+
+## Prototype
+Serve para fins de clonagem de objetos já criados, retornando um novo objeto já inicializado.
+
+Existe a clonagem superficial e a clonagem profunda. A primeira clona os conteúdos que são por tipo de valor, deixando de lado os conteúdos que são por tipos de referência. Já a segunda forma clona tanto por tipo 
+de valor quanto por tipo de referência, e ambas precisam de uma implementação. Algumas linguagens fornecem uma interface _ICloneable_ para facilitar uma implementação padrão para cada uma.
+
+## Singleton
+Um padrão simples (e não muito elegante) que proporciona a mesma instância de uma classe ao longo da aplicação, podendo ela ser algum tipo de compartilhamento de recurso.
+
+Encapsulando o contrutor deixando-o privado e tendo um método estático de inicialização da própria classe é como o Singleton funciona.

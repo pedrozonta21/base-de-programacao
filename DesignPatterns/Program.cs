@@ -7,6 +7,7 @@ using DesignPatterns.Criacionais.FactoryMethod.Factories;
 using DesignPatterns.Criacionais.FactoryMethod.Services;
 using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 using DesignPatterns.Criacionais.Prototype.Models;
+using DesignPatterns.Criacionais.Singleton;
 
 //Factory Method
 ILigarMotorService ligarMotorService = 
@@ -80,3 +81,9 @@ amplificadorMeteoro.Marca.Nome = "Meteoro";
 
 Console.WriteLine(amplificadorBorne.Marca.Nome);
 Console.WriteLine(amplificadorMeteoro.Marca.Nome);
+
+//Singleton
+var singleton = Singleton.RetornarInstanciaDaClasse();
+var singleton2 = Singleton.RetornarInstanciaDaClasse();
+
+Console.WriteLine(ReferenceEquals(singleton, singleton2));
