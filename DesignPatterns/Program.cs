@@ -8,6 +8,9 @@ using DesignPatterns.Criacionais.FactoryMethod.Services;
 using DesignPatterns.Criacionais.FactoryMethod.Services.Interfaces;
 using DesignPatterns.Criacionais.Prototype.Models;
 using DesignPatterns.Criacionais.Singleton;
+using DesignPatterns.Estruturais.Adapter.Services;
+using DesignPatterns.Estruturais.Adapter.Services.Adapters;
+using DesignPatterns.Estruturais.Adapter.Services.Interfaces;
 
 //Factory Method
 ILigarMotorService ligarMotorService = 
@@ -87,3 +90,9 @@ var singleton = Singleton.RetornarInstanciaDaClasse();
 var singleton2 = Singleton.RetornarInstanciaDaClasse();
 
 Console.WriteLine(ReferenceEquals(singleton, singleton2));
+
+//Adapter
+IEnvioDeEmailService emailServiceAdapter = new AdaptadorDeEmailService();
+var fechamentoFiscalService = new FechamentoFiscalService(emailServiceAdapter);
+
+fechamentoFiscalService.EnviarEmailDeFechamento();

@@ -46,3 +46,8 @@ de valor quanto por tipo de referência, e ambas precisam de uma implementação
 Um padrão simples (e não muito elegante) que proporciona a mesma instância de uma classe ao longo da aplicação, podendo ela ser algum tipo de compartilhamento de recurso.
 
 Encapsulando o contrutor deixando-o privado e tendo um método estático de inicialização da própria classe é como o Singleton funciona.
+
+## Adapter
+Chegando nos padrões estruturais, esse tem o objetivo de garantir o princípio S e O do SOLID. Usado quando o código cliente precisa de uma classe da qual não é possível conversar, seja por ter uma interface diferente, ou por ser uma classe legada (não podendo assim nem pensar em citar ela, sendo preciso usar o DIP).
+
+Cria-se uma interface que respeite o uso do cliente, e essa interface é implementada em outra classe criada (a classe Adaptadora). Essa classe adaptadora faz o trabalho sujo de citar aquela classe incompatível ou legada (guardando uma instância dela), transformando a chamada do cliente para que ela possa ser convertida para a classe alvo, assim, o cliente não conhece a implementação de nada por estar tudo invertido graças à interface.
