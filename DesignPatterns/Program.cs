@@ -11,6 +11,7 @@ using DesignPatterns.Criacionais.Singleton;
 using DesignPatterns.Estruturais.Adapter.Services;
 using DesignPatterns.Estruturais.Adapter.Services.Adapters;
 using DesignPatterns.Estruturais.Adapter.Services.Interfaces;
+using DesignPatterns.Estruturais.Composite;
 
 //Factory Method
 ILigarMotorService ligarMotorService = 
@@ -96,3 +97,19 @@ IEnvioDeEmailService emailServiceAdapter = new AdaptadorDeEmailService();
 var fechamentoFiscalService = new FechamentoFiscalService(emailServiceAdapter);
 
 fechamentoFiscalService.EnviarEmailDeFechamento();
+
+//Composite
+var pai = new PaiComposite { Nome = "Everaldo"};
+var filhoDoEveraldo = new Filho { Nome = "Aroldo" };
+var filhoDoEveraldoComFilho = new PaiComposite { Nome = "Júnior" };
+var filhoDoJunior = new PaiComposite { Nome = "Marcos" };
+var filhaDoJuniorComFilho = new MaeComposite { Nome = "Márcia" };
+var filhoDaMarcia = new Filho { Nome = "Bruno" };
+
+pai.AdicionarFilho(filhoDoEveraldoComFilho);
+filhoDoEveraldoComFilho.AdicionarFilho(filhoDoJunior);
+filhoDoJunior.AdicionarFilho(filhaDoJuniorComFilho);
+filhaDoJuniorComFilho.AdicionarFilho(filhoDaMarcia);
+pai.AdicionarFilho(filhoDoEveraldo);
+
+Console.WriteLine(pai.CriarNome());
