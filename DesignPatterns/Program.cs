@@ -137,6 +137,6 @@ var cadernoCapaMole = new CadernoCapaMole(new FolhaReciclavel());
 Console.WriteLine(cadernoCapaMole.RetornarTipoDaFolha());
 Console.WriteLine(cadernoCapaMole.RetornarTipoDeCapa());
 cadernoCapaMole.CriarFolhas(25);
-Console.WriteLine(cadernoBase.RetornarQuantidadeDeFolhas());
+Console.WriteLine(cadernoCapaMole.RetornarQuantidadeDeFolhas());
 cadernoCapaMole.Escrever("Henrique", cadernoCapaMole.Folhas.Last());
 Console.WriteLine(cadernoCapaMole.Folhas.Last().TextoDaFolha);
