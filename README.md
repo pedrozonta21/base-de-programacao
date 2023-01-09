@@ -68,3 +68,11 @@ Cria-se uma interface que respeite o uso do cliente, e essa interface é impleme
 Compõe objetos em forma de árvore, tendo ênfase no uso do polimorfismo. Cada ramificação dessa árvore pode ter outras ramificações que ainda possuem outras. Isso permite que cada objeto da árvore seja tratado de forma independente.
 
 Em alguns casos pode ser complicado, mas cria-se uma interface comum para um objeto simples e para um objeto composto para ser usada pelo cliente, e cada objeto composto pode ter ou um ojeto simples, ou ainda um objeto composto com outros objetos.
+
+## Bridge
+- https://refactoring.guru/pt-br/design-patterns/bridge
+
+Serve para dividir classes interligadas em hierarquias diferentes, dando ênfase na composição em vez da herança. Uma das hierarquias, por meio de uma interface, é composta pela outra hierarquia.
+
+Quando se tem uma classe que pode ter combinações com outras classes (fazendo ela ser "duplicada", por exemplo: [CadernoCapaMoleFolhaBranca], [CadernoCapaMoleFolhaReciclavel]), o padrão entra. O tipo da folha do caderno é abstraído para outra hierarquia, tendo uma interface para todas as subclasses terem um contrato para a classe que terá ela como composição.
+Na hierarquia de caderno, uma classe base implementa os comportamentos padrão, tendo por meio do construtor a injeção da interface do tipo da folha. Cada subclasse de caderno segue com seu comportamento normal, não sendo impedidas obviamente, de utilizarem a interface das folhas. Assim, um [CadernoCapaMole] não precisa ser duplicado, porque ele está "imune" em relação as dependências das classes concretas de Folhas.
