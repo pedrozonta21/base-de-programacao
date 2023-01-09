@@ -11,9 +11,12 @@ using DesignPatterns.Criacionais.Singleton;
 using DesignPatterns.Estruturais.Adapter.Services;
 using DesignPatterns.Estruturais.Adapter.Services.Adapters;
 using DesignPatterns.Estruturais.Adapter.Services.Interfaces;
+using DesignPatterns.Estruturais.Bridge.Caderno;
+using DesignPatterns.Estruturais.Bridge.Folha;
 using DesignPatterns.Estruturais.Composite;
 
 //Factory Method
+Console.WriteLine("\n-- Factory Method");
 ILigarMotorService ligarMotorService = 
     new LigarMotorService
     (
@@ -25,6 +28,7 @@ ligarMotorService.LigarMotor();
 ligarMotorService.MostrarInformacoesDoMotor();
 
 // Abstract Factory
+Console.WriteLine("\n-- Abstract Factory");
 CriarDuplaDePilotos(new CriaDuplaDePilotosMercedesFactory());
 CriarDuplaDePilotos(new CriaDuplaDePilotosRedBullFactory());
 
@@ -38,6 +42,7 @@ void CriarDuplaDePilotos(ICriaDuplaDePilotosAbstractFactory criaDuplaDePilotosAb
 }
 
 //Builder
+Console.WriteLine("\n-- Builder");
 ConstruirProduto();
 
 void ConstruirProduto()
@@ -52,6 +57,7 @@ void ConstruirProduto()
 }
 
 //Prototype
+Console.WriteLine("\n-- Prototype");
 var guitarraFender = new GuitarraModel
 {
     Codigo = 1,
@@ -87,18 +93,21 @@ Console.WriteLine(amplificadorBorne.Marca.Nome);
 Console.WriteLine(amplificadorMeteoro.Marca.Nome);
 
 //Singleton
+Console.WriteLine("\n-- Singleton");
 var singleton = Singleton.RetornarInstanciaDaClasse();
 var singleton2 = Singleton.RetornarInstanciaDaClasse();
 
 Console.WriteLine(ReferenceEquals(singleton, singleton2));
 
 //Adapter
+Console.WriteLine("\n-- Adapter");
 IEnvioDeEmailService emailServiceAdapter = new AdaptadorDeEmailService();
 var fechamentoFiscalService = new FechamentoFiscalService(emailServiceAdapter);
 
 fechamentoFiscalService.EnviarEmailDeFechamento();
 
 //Composite
+Console.WriteLine("\n-- Composite");
 var pai = new PaiComposite { Nome = "Everaldo"};
 var filhoDoEveraldo = new Filho { Nome = "Aroldo" };
 var filhoDoEveraldoComFilho = new PaiComposite { Nome = "Júnior" };
@@ -113,3 +122,21 @@ filhaDoJuniorComFilho.AdicionarFilho(filhoDaMarcia);
 pai.AdicionarFilho(filhoDoEveraldo);
 
 Console.WriteLine(pai.CriarNome());
+
+//Bridge
+Console.WriteLine("\n-- Bridge");
+var cadernoBase = new CadernoBase(new FolhaBranca());
+Console.WriteLine(cadernoBase.RetornarTipoDaFolha());
+Console.WriteLine(cadernoBase.RetornarTipoDeCapa());
+cadernoBase.CriarFolhas(30);
+Console.WriteLine(cadernoBase.RetornarQuantidadeDeFolhas());
+cadernoBase.Escrever("Pedro", cadernoBase.Folhas.First());
+Console.WriteLine(cadernoBase.Folhas.First().TextoDaFolha);
+
+var cadernoCapaMole = new CadernoCapaMole(new FolhaReciclavel());
+Console.WriteLine(cadernoCapaMole.RetornarTipoDaFolha());
+Console.WriteLine(cadernoCapaMole.RetornarTipoDeCapa());
+cadernoCapaMole.CriarFolhas(25);
+Console.WriteLine(cadernoBase.RetornarQuantidadeDeFolhas());
+cadernoCapaMole.Escrever("Henrique", cadernoCapaMole.Folhas.Last());
+Console.WriteLine(cadernoCapaMole.Folhas.Last().TextoDaFolha);
