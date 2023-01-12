@@ -14,6 +14,7 @@ using DesignPatterns.Estruturais.Adapter.Services.Interfaces;
 using DesignPatterns.Estruturais.Bridge.Caderno;
 using DesignPatterns.Estruturais.Bridge.Folha;
 using DesignPatterns.Estruturais.Composite;
+using DesignPatterns.Estruturais.Decorator.Services;
 
 //Factory Method
 Console.WriteLine("\n-- Factory Method");
@@ -140,3 +141,17 @@ cadernoCapaMole.CriarFolhas(25);
 Console.WriteLine(cadernoCapaMole.RetornarQuantidadeDeFolhas());
 cadernoCapaMole.Escrever("Henrique", cadernoCapaMole.Folhas.Last());
 Console.WriteLine(cadernoCapaMole.Folhas.Last().TextoDaFolha);
+
+//Decorator
+Console.WriteLine("\n-- Decorator");
+var clean = new EfeitoCleanService();
+var reverb = new EfeitoReverbService(clean);
+var drive = new EfeitoDriveService(reverb);
+var chorus = new EfeitoChorusService(drive);
+//chorus = new EfeitoChorusService(reverb);
+//drive.AtribuirNovaClasseDeEfeito(chorus);
+
+Console.WriteLine(clean.AlterarTimbre());
+Console.WriteLine(reverb.AlterarTimbre());
+Console.WriteLine(drive.AlterarTimbre());
+Console.WriteLine(chorus.AlterarTimbre());
