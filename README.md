@@ -76,3 +76,10 @@ Serve para dividir classes interligadas em hierarquias diferentes, dando ênfase
 
 Quando se tem uma classe que pode ter combinações com outras classes (fazendo ela ser "duplicada", por exemplo: `CadernoCapaMoleFolhaBranca`, `CadernoCapaMoleFolhaReciclavel`), o padrão entra. O tipo da folha do caderno é abstraído para outra hierarquia, tendo uma interface para todas as subclasses terem um contrato para a classe que terá ela como composição.
 Na hierarquia de caderno, uma classe base implementa os comportamentos padrão, tendo por meio do construtor a injeção da interface do tipo da folha. Cada subclasse de caderno segue com seu comportamento normal, não sendo impedidas obviamente, de utilizarem a interface das folhas. Assim, um `CadernoCapaMole` não precisa ser duplicado, porque ele está "imune" em relação as dependências das classes concretas de Folhas.
+
+## Decorator
+- https://refactoring.guru/pt-br/design-patterns/decorator
+
+Tem o objetivo de adicionar novos comportamentos, colocando-os dentro de um "container", podendo fazê-los trabalharem em conjunto.
+
+Uma classe base do Decorator possui uma instância de seu próprio tipo (uma interface). Cada classe de comportamento implementa herda Decorator, assim, quando a classe base é instanciada, um objeto é passado pra ela, normalmente um outro comportamento para trabalhar junto com o mesmo. Tudo isso é passado para a classe base, que por meio da interface, delega as chamadas. Ou seja, toda classe filha pode ter uma outra classe filha, porém sem a depedência, assim, Uma classe A, recebe para trabalhar junto uma classe B, e a classe base é responsável por ter o(s) método(s) chamador(es). Essa classe B na classe A pode ser alterada em tempo de execução, fazendo com que A possa receber C.
