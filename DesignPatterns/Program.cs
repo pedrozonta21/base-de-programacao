@@ -150,7 +150,7 @@ var clean = new EfeitoCleanService();
 var reverb = new EfeitoReverbService(clean);
 var drive = new EfeitoDriveService(reverb);
 var chorus = new EfeitoChorusService(drive);
-//chorus = new EfeitoChorusService(reverb);
+//chorus = new EfeitoChorusService(new EfeitoReverbService(clean));
 //drive.AtribuirNovaClasseDeEfeito(chorus);
 
 Console.WriteLine(clean.AlterarTimbre());
