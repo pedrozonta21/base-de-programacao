@@ -15,6 +15,8 @@ using DesignPatterns.Estruturais.Bridge.Caderno;
 using DesignPatterns.Estruturais.Bridge.Folha;
 using DesignPatterns.Estruturais.Composite;
 using DesignPatterns.Estruturais.Decorator.Services;
+using DesignPatterns.Estruturais.Facade.Services;
+using DesignPatterns.Estruturais.Facade.Services.Interfaces;
 
 //Factory Method
 Console.WriteLine("\n-- Factory Method");
@@ -155,3 +157,8 @@ Console.WriteLine(clean.AlterarTimbre());
 Console.WriteLine(reverb.AlterarTimbre());
 Console.WriteLine(drive.AlterarTimbre());
 Console.WriteLine(chorus.AlterarTimbre());
+
+//Facace
+Console.WriteLine("\n-- Facade");
+IQrCodeFacadeService facade = new QrCodeFramework1Service();
+Console.WriteLine(facade.GerarQrCode(Guid.NewGuid()));
