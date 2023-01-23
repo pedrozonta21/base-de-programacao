@@ -90,3 +90,15 @@ Uma classe base do Decorator possui uma instância de seu próprio tipo (uma int
 A fachada, que pode ser substituída por uma fábrica, consiste em fornecer uma interface mais simples do que a de um subsistema (API, Framework...), tendo declarado aquilo que realmente faz sentido do cliente, já que um subsistema pode ter várias funcionalidades, e mais importante do que isso, não deixar que um classe de nível mais alto dependa do subsistema.
 
 O uso é simples, o código cliente consome uma classe fachada, onde nela existe o contato com o(s) subsistema(s). Assim, o código cliente desconhece a existência de um software de terceiros. Como o objetivo de um Facade é ser de fácil compreensão, o ideal é ir separando-o conforme ele vai crescendo.
+
+## Flyweight
+- https://refactoring.guru/pt-br/design-patterns/flyweight
+
+(Em breve...)
+
+## Proxy
+- https://refactoring.guru/pt-br/design-patterns/proxy
+
+Esse padrão tem como objetivo encapsular aquilo que precisa ser feito antes e/ou depois do uso de uma determinada classe. Com o proxy, não é necessário duplicar o código (nem mesmo uma chamada para outra classe que contenha esse código), digamos, independente do que faz a classe alvo.
+
+Um uso simples (existem outros mais complexos) é quando se precisa fazer uma verificação de login, por exemplo, sempre que for enviado algum arquivo para um repositório remoto ou nuvem, a partir do dispositivo local. Fazer essa verificação no código cliente é horrível, e mesmo que extrair isso para outra classe para ser usada seja uma boa ideia, o problema ainda não estaria totalmente resolvido, pois ainda assim devem ser feitas as chamadas para essa classe. O proxy implementa a mesma interface da classe alvo, porém nesse proxy que é feito, como no exemplo, a verificação de login, então o código cliente aceita receber qualquer classe da interface, e ele pode receber esse ou outro proxy, que faz a verificação do login ou algum outro trabalho sujo que precise ser executado antes e/ou depois do consumo do serviço alvo.
