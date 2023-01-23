@@ -17,6 +17,8 @@ using DesignPatterns.Estruturais.Composite;
 using DesignPatterns.Estruturais.Decorator.Services;
 using DesignPatterns.Estruturais.Facade.Services;
 using DesignPatterns.Estruturais.Facade.Services.Interfaces;
+using DesignPatterns.Estruturais.Proxy.Services;
+using DesignPatterns.Estruturais.Proxy.Services.Interfaces;
 
 //Factory Method
 Console.WriteLine("\n-- Factory Method");
@@ -158,7 +160,17 @@ Console.WriteLine(reverb.AlterarTimbre());
 Console.WriteLine(drive.AlterarTimbre());
 Console.WriteLine(chorus.AlterarTimbre());
 
-//Facace
+//Facade
 Console.WriteLine("\n-- Facade");
 IQrCodeFacadeService facade = new QrCodeFramework1Service();
 Console.WriteLine(facade.GerarQrCode(Guid.NewGuid()));
+
+//Flyweight
+
+//Proxy
+Console.WriteLine("\n-- Proxy");
+var gerarArquivoMp3Service = new GerarArquivoMp3Service();
+var logCustomizadoService = new LogCustomizadoDeGeracaoDeArquivoService();
+
+var proxyGerarArquivoMp3Service = new ProxyGerarArquivoMp3Service(gerarArquivoMp3Service, logCustomizadoService);
+proxyGerarArquivoMp3Service.GerarAquivoMp3("C:/");
