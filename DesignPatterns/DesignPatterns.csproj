@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Comportamentais\ChainOfResponsability\" />
     <Folder Include="Estruturais\Flyweight\" />
   </ItemGroup>
 

@@ -94,7 +94,7 @@ O uso é simples, o código cliente consome uma classe fachada, onde nela existe
 ## Flyweight
 - https://refactoring.guru/pt-br/design-patterns/flyweight
 
-(Em breve...)
+(Em breve, pois é complexo para estudo)
 
 ## Proxy
 - https://refactoring.guru/pt-br/design-patterns/proxy
@@ -102,3 +102,8 @@ O uso é simples, o código cliente consome uma classe fachada, onde nela existe
 Esse padrão tem como objetivo encapsular aquilo que precisa ser feito antes e/ou depois do uso de uma determinada classe. Com o proxy, não é necessário duplicar o código (nem mesmo uma chamada para outra classe que contenha esse código), digamos, independente do que faz a classe alvo.
 
 Um uso simples (existem outros mais complexos) é quando se precisa fazer uma verificação de login, por exemplo, sempre que for enviado algum arquivo para um repositório remoto ou nuvem, a partir do dispositivo local. Fazer essa verificação no código cliente é horrível, e mesmo que extrair isso para outra classe para ser usada seja uma boa ideia, o problema ainda não estaria totalmente resolvido, pois ainda assim devem ser feitas as chamadas para essa classe. O proxy implementa a mesma interface da classe alvo, porém nesse proxy que é feito, como no exemplo, a verificação de login, então o código cliente aceita receber qualquer classe da interface, e ele pode receber esse ou outro proxy, que faz a verificação do login ou algum outro trabalho sujo que precise ser executado antes e/ou depois do consumo do serviço alvo.
+
+## Chain of Responsability
+- https://refactoring.guru/pt-br/design-patterns/chain-of-responsibility
+
+(Em breve. Padrões comportamentais serão estudados depois de uma pausa)
