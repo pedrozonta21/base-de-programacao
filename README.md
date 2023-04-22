@@ -94,7 +94,10 @@ O uso é simples, o código cliente consome uma classe fachada, onde nela existe
 ## Flyweight
 - https://refactoring.guru/pt-br/design-patterns/flyweight
 
-(Em breve, pois é complexo para estudo)
+O objetivo é equilibrar o consumo de memória impedindo que objetos repetidos sejam criados. Ou seja, compartilhar objetos comuns para outros objetos.
+
+O conceito consiste, por exemplo, em um objeto que tenha uma propriedade que será igual para todos os outros objetos do seu tipo, tendo apenas uma parte sendo específica.
+Assim sendo, uma fábrica (que pode ser um Singleton) armazena os objetos que serão reaproveitados, assim, a mesma instância é reaproveitada em diversos clientes.
 
 ## Proxy
 - https://refactoring.guru/pt-br/design-patterns/proxy
