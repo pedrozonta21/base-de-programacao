@@ -17,6 +17,8 @@ using DesignPatterns.Estruturais.Composite;
 using DesignPatterns.Estruturais.Decorator.Services;
 using DesignPatterns.Estruturais.Facade.Services;
 using DesignPatterns.Estruturais.Facade.Services.Interfaces;
+using DesignPatterns.Estruturais.Flyweight.ContaBancaria;
+using DesignPatterns.Estruturais.Flyweight.Model;
 using DesignPatterns.Estruturais.Proxy.Services;
 using DesignPatterns.Estruturais.Proxy.Services.Interfaces;
 
@@ -166,6 +168,40 @@ IQrCodeFacadeService facade = new QrCodeFramework1Service();
 Console.WriteLine(facade.GerarQrCode(Guid.NewGuid()));
 
 //Flyweight
+Console.WriteLine("\n-- Flyweight");
+
+var fabricaFlyweight = new ContaBancariaFlyweightFactory();
+var listaDeContas = new List<ContaBancariaModel>() {
+    new ContaBancariaModel() { Codigo = 1, Agencia = "12", CodigoBanco = "4", Numero = "1234"},
+    new ContaBancariaModel() { Codigo = 2, Agencia = "29", CodigoBanco = "9", Numero = "35468"},
+    new ContaBancariaModel() { Codigo = 3, Agencia = "40", CodigoBanco = "11", Numero = "548"},
+    new ContaBancariaModel() { Codigo = 4, Agencia = "99", CodigoBanco = "1", Numero = "5234"},
+};
+
+listaDeContas.ForEach(fabricaFlyweight.AdicionarContaAoDicionario);
+
+var pagamento1 = new PagamentoModel
+{
+    ContaBancaria = fabricaFlyweight.RetornarContaBancaria(1),
+    Pagador = new()
+};
+var pagamento2 = new PagamentoModel
+{
+    ContaBancaria = fabricaFlyweight.RetornarContaBancaria(1),
+    Pagador = new()
+};
+var pagamento3 = new PagamentoModel
+{
+    ContaBancaria = fabricaFlyweight.RetornarContaBancaria(4),
+    Pagador = new()
+};
+
+Console.WriteLine(
+    $@"Endereço da conta do pagamento 1 na memória: {pagamento1.ContaBancaria.GetHashCode()}");
+Console.WriteLine(
+    $@"Endereço da conta do pagamento 2 na memória: {pagamento2.ContaBancaria.GetHashCode()}");
+Console.WriteLine(
+    $@"Endereço da conta do pagamento 3 na memória: {pagamento3.ContaBancaria.GetHashCode()}");
 
 //Proxy
 Console.WriteLine("\n-- Proxy");
