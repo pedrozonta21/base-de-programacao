@@ -109,4 +109,13 @@ Um uso simples (existem outros mais complexos) é quando se precisa fazer uma ve
 ## Chain of Responsability
 - https://refactoring.guru/pt-br/design-patterns/chain-of-responsibility
 
-(Em breve. Padrões comportamentais serão estudados depois de uma pausa)
+A cadeia de responsabilidades serve para ligar processos na qual um objeto precisa passar, fazendo, em uma analogia, elos como o de uma corrente.
+Cada parte da cadeia (elo) é responsável por um processamento, e ele decide se processa a requisição ou se passa para o próximo validador.
+Para respeitar as boas práticas, cada elo pode ser usado separadamente, sem a necessidade de depender de outro elo.
+
+No exemplo para validar objetos de pessoas, elas precisam passar por duas validações: Serasa e antecedente criminal. Nesse caso, se o primeiro elo 
+é válido, ele apenas passa para o próximo, e assim por diante. Quando todos são executados apenas passando para o próximo, significa que nenhum 
+dos elos invalidou a pessoa, logo, ela é aceita.
+
+Porém, se um não validar a pessoa, a sequência é interrompida. A forma como esse padrão é utilizado permite adicionar novas validações facilmente, 
+além de existir a flexibilidade de definir uma sequência, podendo ou não usar todos os _Handlers_.
