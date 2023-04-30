@@ -1,4 +1,6 @@
-﻿using DesignPatterns.Criacionais.AbstractFactory.Factories;
+﻿using DesignPatterns.Comportamentais.ChainOfResponsability.Handlers;
+using DesignPatterns.Comportamentais.ChainOfResponsability.Model;
+using DesignPatterns.Criacionais.AbstractFactory.Factories;
 using DesignPatterns.Criacionais.AbstractFactory.Factories.Interfaces;
 using DesignPatterns.Criacionais.Builder.Produto.Builders;
 using DesignPatterns.Criacionais.Builder.Produto.Builders.Interfaces;
@@ -210,3 +212,20 @@ var logCustomizadoService = new LogCustomizadoDeGeracaoDeArquivoService();
 
 var proxyGerarArquivoMp3Service = new ProxyGerarArquivoMp3Service(gerarArquivoMp3Service, logCustomizadoService);
 proxyGerarArquivoMp3Service.GerarAquivoMp3("C:/");
+
+//Chain of Responsability
+Console.WriteLine("\n-- Chain of Responsability");
+var serasaHandler = new ValidaPessoaForaDoSerasaHandler();
+var criminalHandler = new ValidaPessoaSemAntecedenteCriminal();
+serasaHandler.SetarNovaValidacao(criminalHandler);
+
+bool ValidarPessoa(PessoaHandlerBase pessoaHandler, PessoaModel pessoa) => pessoaHandler.ValidarPessoa(pessoa);
+
+var pessoa1 = new PessoaModel { Cpf = "123", Nome = "Arnaldo" };
+Console.WriteLine($@"{pessoa1.Nome} é válida? {ValidarPessoa(serasaHandler, pessoa1)}");
+
+var pessoa2 = new PessoaModel { Cpf = "321", Nome = "Vitor" };
+Console.WriteLine($@"{pessoa2.Nome} é válida? {ValidarPessoa(serasaHandler, pessoa2)}");
+
+var pessoa3 = new PessoaModel { Cpf = "1234", Nome = "Ana" };
+Console.WriteLine($@"{pessoa3.Nome} é válida? {ValidarPessoa(criminalHandler, pessoa3)}");
