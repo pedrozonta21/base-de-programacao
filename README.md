@@ -119,3 +119,10 @@ dos elos invalidou a pessoa, logo, ela é aceita.
 
 Porém, se um não validar a pessoa, a sequência é interrompida. A forma como esse padrão é utilizado permite adicionar novas validações facilmente, 
 além de existir a flexibilidade de definir uma sequência, podendo ou não usar todos os _Handlers_.
+
+## Command
+- https://refactoring.guru/pt-br/design-patterns/command
+
+O padrão _Comando_ tem como objetivo desacoplar o emissor (que no caso do projeto, é o cliente, que por sua vez sempre acaba sendo o `Program.cs`) do objeto alvo/receptor `CaptadorService.cs`. Assim sendo, toda requisição vira um objeto, podendo ser parametrizada, onde o remetente não tem conhecimento sobre a parte específica que será executada, pois o contexto é definido fora do remetente.
+
+O invocador `GuitarraInvoker.cs` recebe uma interface _ICommand_ para executar a ação específica da classe alvo, que como dito, não é de conhecimento dela e muito menos do remetente.
