@@ -1,5 +1,7 @@
 ﻿using DesignPatterns.Comportamentais.ChainOfResponsability.Handlers;
 using DesignPatterns.Comportamentais.ChainOfResponsability.Model;
+using DesignPatterns.Comportamentais.Command;
+using DesignPatterns.Comportamentais.Command.Captadores;
 using DesignPatterns.Criacionais.AbstractFactory.Factories;
 using DesignPatterns.Criacionais.AbstractFactory.Factories.Interfaces;
 using DesignPatterns.Criacionais.Builder.Produto.Builders;
@@ -22,7 +24,6 @@ using DesignPatterns.Estruturais.Facade.Services.Interfaces;
 using DesignPatterns.Estruturais.Flyweight.ContaBancaria;
 using DesignPatterns.Estruturais.Flyweight.Model;
 using DesignPatterns.Estruturais.Proxy.Services;
-using DesignPatterns.Estruturais.Proxy.Services.Interfaces;
 
 //Factory Method
 Console.WriteLine("\n-- Factory Method");
@@ -229,3 +230,23 @@ Console.WriteLine($@"{pessoa2.Nome} é válida? {ValidarPessoa(serasaHandler, pe
 
 var pessoa3 = new PessoaModel { Cpf = "1234", Nome = "Ana" };
 Console.WriteLine($@"{pessoa3.Nome} é válida? {ValidarPessoa(criminalHandler, pessoa3)}");
+
+//Command
+Console.WriteLine("\n-- Command");
+var captadoresService = new CaptadoresService();
+
+var selecionaCaptadorDaPonte = new SelecionaCaptadorDaPonteCommand(captadoresService);
+var selecionaCaptadorDoBraco = new SelecionaCaptadorDoBracoCommand(captadoresService);
+var selecionaDoisCaptadores = new SelecionaDoisCaptadoresCommand(captadoresService);
+
+var guitarraInvoker = new GuitarraInvoker();
+
+guitarraInvoker.ColocarCommand(selecionaCaptadorDaPonte);
+guitarraInvoker.TrocarCaptador();
+Console.WriteLine();
+guitarraInvoker.ColocarCommand(selecionaCaptadorDoBraco);
+guitarraInvoker.TrocarCaptador();
+Console.WriteLine();
+guitarraInvoker.ColocarCommand(selecionaDoisCaptadores);
+guitarraInvoker.TrocarCaptador();
+Console.WriteLine();
