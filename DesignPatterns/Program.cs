@@ -2,6 +2,7 @@
 using DesignPatterns.Comportamentais.ChainOfResponsability.Model;
 using DesignPatterns.Comportamentais.Command;
 using DesignPatterns.Comportamentais.Command.Captadores;
+using DesignPatterns.Comportamentais.Iterator;
 using DesignPatterns.Criacionais.AbstractFactory.Factories;
 using DesignPatterns.Criacionais.AbstractFactory.Factories.Interfaces;
 using DesignPatterns.Criacionais.Builder.Produto.Builders;
@@ -250,3 +251,16 @@ Console.WriteLine();
 guitarraInvoker.ColocarCommand(selecionaDoisCaptadores);
 guitarraInvoker.TrocarCaptador();
 Console.WriteLine();
+
+//Iterator
+Console.WriteLine("\n-- Iterator");
+var listaDeNumeros = new NumerosColletion();
+listaDeNumeros.AdicionarNumero(1);
+listaDeNumeros.AdicionarNumero(8);
+listaDeNumeros.AdicionarNumero(15);
+listaDeNumeros.AdicionarNumero(7);
+
+foreach (var elemento in listaDeNumeros)
+{
+    Console.WriteLine(elemento);
+}
