@@ -126,3 +126,10 @@ além de existir a flexibilidade de definir uma sequência, podendo ou não usar
 O padrão _Comando_ tem como objetivo desacoplar o emissor (que no caso do projeto, é o cliente, que por sua vez sempre acaba sendo o `Program.cs`) do objeto alvo/receptor `CaptadorService.cs`. Assim sendo, toda requisição vira um objeto, podendo ser parametrizada, onde o remetente não tem conhecimento sobre a parte específica que será executada, pois o contexto é definido fora do remetente.
 
 O invocador `GuitarraInvoker.cs` recebe uma interface _ICommand_ para executar a ação específica da classe alvo, que como dito, não é de conhecimento dela e muito menos do remetente.
+
+## Iterator
+- https://refactoring.guru/design-patterns/iterator
+
+Este padrão trabalha em cima de iterações sobre uma coleção, tendo ênfase para tipos de coleções específicas criadas. O cliente, que vai percorrer os dados a fim de visualizar ou manipular, não conhece a forma do algoritmo que percorre os dados. Faz mais sentido usar o padrão para coleções complexas, que precisam de um refinamento para funcionarem de acordo com a necessidade.
+
+No exemplo, resumidamente a classe `Iterator` define uma interface para os algoritmos, e `FimComecoIterator` `ComecoFimIterator` são as classes concretas que vão definir como o algoritmo de percorrer a coleção vai funcionar.
