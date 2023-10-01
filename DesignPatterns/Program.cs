@@ -3,6 +3,7 @@ using DesignPatterns.Comportamentais.ChainOfResponsability.Model;
 using DesignPatterns.Comportamentais.Command;
 using DesignPatterns.Comportamentais.Command.Captadores;
 using DesignPatterns.Comportamentais.Iterator;
+using DesignPatterns.Comportamentais.Mediator;
 using DesignPatterns.Criacionais.AbstractFactory.Factories;
 using DesignPatterns.Criacionais.AbstractFactory.Factories.Interfaces;
 using DesignPatterns.Criacionais.Builder.Produto.Builders;
@@ -264,3 +265,16 @@ foreach (var elemento in listaDeNumeros)
 {
     Console.WriteLine(elemento);
 }
+
+//Mediator
+Console.WriteLine("\n-- Mediator");
+var corVermelha = new CorVermelhaSemaforoComponent();
+var corAmarela = new CorAmarelaSemaforoComponent();
+var corVerde = new CorVerdeSemaforoComponent();
+var mediator = new SemaforoMediator(corAmarela, corVerde, corVermelha);
+
+corVermelha.Acender();
+Console.WriteLine();
+corAmarela.Acender();
+Console.WriteLine();
+corVerde.Acender();
