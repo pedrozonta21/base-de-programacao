@@ -133,3 +133,10 @@ O invocador `GuitarraInvoker.cs` recebe uma interface _ICommand_ para executar a
 Este padrão trabalha em cima de iterações sobre uma coleção, tendo ênfase para tipos de coleções específicas criadas. O cliente, que vai percorrer os dados a fim de visualizar ou manipular, não conhece a forma do algoritmo que percorre os dados. Faz mais sentido usar o padrão para coleções complexas, que precisam de um refinamento para funcionarem de acordo com a necessidade.
 
 No exemplo, resumidamente a classe `Iterator` define uma interface para os algoritmos, e `FimComecoIterator` `ComecoFimIterator` são as classes concretas que vão definir como o algoritmo de percorrer a coleção vai funcionar.
+
+## Mediator
+- https://refactoring.guru/design-patterns/mediator
+
+O objetivo é agrupar o acoplamento para que os componentes não se comuniquem de forma direta. Com isso, eles se comunicam através de um mediador, permitindo que cada componente fique independente. Deve-se tomar cuidado para o mediador não se tornar um _God Object_.
+
+Para simular seu uso, o exemplo está no cenário de um semáforo. Cada cor (luz) é um objeto independente, e a fim de evitar que um seja acoplado ao outro, toda o conhecimento dos objetos se dá pelo mediador `SemaforoMediator`. Cada implementação `ICoresSemaforoComponent` invoca o mediador para o mesmo fazer a comunicação com os demais objetos. O objeto que solicita a ação ao mediador não conhece quem vai receber, e vice-versa.
